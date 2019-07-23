@@ -1,0 +1,16 @@
+Django==2.0.2
+future==0.17.1
+gunicorn==19.9.0
+importlib-metadata==0.18
+jedi==0.13.3
+mysql-connector-python==8.0.16
+parso==0.5.0
+Pillow==6.0.0
+pluggy==0.12.0
+protobuf==3.8.0
+psycopg2-binary==2.8.3
+python-jsonrpc-server==0.1.2
+python-language-server==0.27.0
+pytz==2019.1
+six==1.12.0
+zipp==0.5.1
