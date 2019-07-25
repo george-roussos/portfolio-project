@@ -1,28 +1,130 @@
-<h1>There are {{ count }} words in your text</h1>
+<!doctype html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Jekyll v3.8.5">
+  <title>George Roussos</title>
 
-<a href="{% url 'home' %}">Start Again</a>
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
-<h1>Your Text:</h1>
-{{ fulltext }}
-<br />
-<br />
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<h1>Word Count:</h1>
 
-{% for word, counttotal in sortedwords %}
 
-{{ word }}: {{ counttotal }}
-<br />
-<br />
-{% endfor %}
-<br />
-<br />
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
 
-<h1>POS Tagging of text:</h1>
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <!-- Custom styles for this template -->
+  <link href="album.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="{% url 'home' %}">George Roussos</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-item nav-link active" href="http://twitter.com/halfgeorgie" target="_blank">Twitter</a>
+          <a class="nav-item nav-link active" href="https://www.linkedin.com/in/georroussos/" target="_blank">LinkedIn</a>
+          <a class="nav-item nav-link active" href="/blog">Blog</a>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-{% for i in pos_tagging %}
+  <div class="card-deck">
 
-{{ i }}
-<br />
-<br />
-{% endfor %}
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">Let's do some NLP!</h5>
+        <p class="card-text">NB: Results here are only proof of concept and should only be used for educational purposes.</p>
+      </div>
+      <br>
+      <br />
+
+      <div class="card-deck">
+        <div class="card text-white bg-dark mb-3 mx-auto" style="max-width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Your Text</h5>
+            <p class="card-text">{{ fulltext }}</p>
+          </div>
+        </div>
+        <div class="card bg-light mb-3 mx-auto" style="max-width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Word Sum</h5>
+            <p class="card-text">There are {{ count }} words in your text.</p>
+          </div>
+        </div>
+        <div class="card text-white bg-dark mb-3 mx-auto" style="max-width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Word Count</h5>
+            <p class="card-text">{% for word, counttotal in sortedwords %}
+
+              {{ word }}: {{ counttotal }}
+              <br />
+            {% endfor %}</p>
+          </div>
+        </div>
+        <div class="card bg-light mb-3 mx-auto" style="max-width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">POS Tagging of text</h5>
+            <p class="card-text">{% for i in pos_tagging %}
+
+              {{ i }}
+              <br />
+            {% endfor %}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<br>
+
+<h4 align="center"> Dependency Parsing </h4>
+
+<style type="text/css">
+#hideoverflow { overflow: hidden; }
+#outer { position: relative; left: 50%; float: left; }
+#inner { position: relative; left: -50%; float: left; }
+</style>
+
+<div id="hideoverflow">
+    <div id="outer">
+        <div id="inner">
+            {{ tree | safe }}
+        </div>
+    </div>
+</div>
+
+
+  <footer class="text-muted">
+    <div class="container text-center">
+      <hr>
+      <p>© George Roussos {% now "Y" %}</p>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script></body>
+  </html>

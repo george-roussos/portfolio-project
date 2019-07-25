@@ -1,0 +1,30 @@
+<h1>There are {{ count }} words in your text</h1>
+
+<a href="{% url 'home' %}">Start Again</a>
+
+<h1>Your Text:</h1>
+{{ fulltext }}
+<br />
+<br />
+
+<h1>Word Count:</h1>
+
+{% for word, counttotal in sortedwords %}
+
+{{ word }}: {{ counttotal }}
+<br />
+<br />
+{% endfor %}
+
+<h1>POS Tagging of text:</h1>
+
+{% for i in pos_tagging %}
+
+{{ i }}
+<br />
+<br />
+{% endfor %}
+
+<h1>Dependency Parse of text:</h1>
+
+<img src="{{MEDIA_URL}}giphy.gif/>
