@@ -58,6 +58,7 @@
       <div class="card-body">
         <h5 class="card-title">Let's do some NLP!</h5>
         <p class="card-text">NB: Results here are only proof of concept and should only be used for educational purposes.</p>
+        <a href="/wordcount" class="btn btn-primary">Start again</a>
       </div>
       <br>
       <br />
@@ -99,23 +100,18 @@
     </div>
   </div>
 
-<br>
+  <br>
 
-<h4 align="center"> Dependency Parsing </h4>
+  <h4 align="center"> Named Entities </h4>
 
-<style type="text/css">
-#hideoverflow { overflow: hidden; }
-#outer { position: relative; left: 50%; float: left; }
-#inner { position: relative; left: -50%; float: left; }
-</style>
+  {{ named_entities | safe }}
 
-<div id="hideoverflow">
-    <div id="outer">
-        <div id="inner">
-            {{ tree | safe }}
-        </div>
-    </div>
-</div>
+  <br>
+  <hr>
+
+  <h4 align="center"> Dependency Parsing </h4>
+
+  {{ tree | safe }}
 
 
   <footer class="text-muted">
