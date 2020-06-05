@@ -2,7 +2,7 @@ blis==0.2.4
 certifi==2019.6.16
 chardet==3.0.4
 cymem==2.0.2
-Django==2.0.2
+Django==2.2.13
 en-core-web-sm==2.1.0
 future==0.17.1
 idna==2.8
